@@ -1,0 +1,100 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <!-- Configuration for the default package. -->
+    <package name="default" extends="struts-default" namespace="/">
+        <action name="">
+            <result type="chain">homePage</result>
+        </action>
+        <action name="homePage" class="thinh.struts.HomePageAction">
+            <result name="success">homePage.jsp</result>
+        </action>
+        <action name="login" class="thinh.struts.LoginAction">
+            <result name="success" type="chain">homePage</result>
+            <result name="fail">login.jsp</result>
+        </action>
+        <action name="search" class="thinh.struts.SearchAction">
+            <result name="success">homePage.jsp</result>
+        </action>
+        <action name="createNewAccount" class="thinh.struts.CreateNewAccountAction">
+            <result name="success">homePage.jsp</result>
+            <result name="fail">error.jsp</result>
+            <result name="input">createNewAccount.jsp</result>
+        </action>
+        <action name="addToCart" class="thinh.struts.AddToCartAction">
+            <result name="success">homePage.jsp</result>
+            <result name="search" type="chain">search</result>
+        </action>
+        <action name="checkOut" class="thinh.struts.CheckOutAction">
+            <result name="success" type="chain">shoppingHistory</result>
+            <result name="input">cartPage.jsp</result>
+            <result name="fail">error.jsp</result>
+        </action>
+        <action name="updateCartDateFromAndDateTo" class="thinh.struts.UpdateCartDateFromAndDateToAction">
+            <result name="success">cartPage.jsp</result>
+            <result name="fail">error.jsp</result>
+            <result name="input">cartPage.jsp</result>
+        </action>
+        <action name="createNewCar" class="thinh.struts.CreateNewCarAction">
+            <result name="success">adminPage.jsp</result>
+            <result name="input">createNewCar.jsp</result>
+            <result name="fail">error.jsp</result>
+        </action>
+        <action name="updateCar" class="thinh.struts.UpdateCarAction">
+            <result name="success">adminPage.jsp</result>
+            <result name="input">detailToUpdate.jsp</result>
+            <result name="fail">error.jsp</result>
+        </action>
+        <action name="deleteCar" class="thinh.struts.DeleteCarAction">
+            <result name="success">adminPage.jsp</result>
+            <result name="fail">error.jsp</result>
+        </action>
+        <action name="detailToUpdate" class="thinh.struts.DetailToUpdateAction">
+            <result name="success">detailToUpdate.jsp</result>
+        </action>
+        <action name="searchAdmin" class="thinh.struts.SearchAdminAction">
+            <result name="success">adminPage.jsp</result>
+        </action>
+        <action name="adminPage" class="thinh.struts.AdminPageAction">
+            <result name="success">adminPage.jsp</result>
+        </action>
+        <action name="deleteFromCart" class="thinh.struts.DeleteFromCartAction">
+            <result name="success">cartPage.jsp</result>
+        </action>
+        <action name="changeNumberOfCard" class="thinh.struts.ChangeNumberOfCardAction">
+            <result name="success">cartPage.jsp</result>
+        </action>
+        <action name="detailCar" class="thinh.struts.DetailCarAction">
+            <result name="success">detailPage.jsp</result>
+        </action>
+        <action name="sendFeedback" class="thinh.struts.SendFeedbackAction">
+            <result name="success" type="chain">detailCar</result>
+            <result name="fail">error.jsp</result>
+        </action>
+        <action name="logOut" class="thinh.struts.LogOutAction">
+            <result name="success">homePage.jsp</result>
+        </action>
+        <action name="shoppingHistory" class="thinh.struts.ShoppingHistoryAction">
+            <result name="success">shoppingHistory.jsp</result>
+        </action>
+        <action name="searchShoppingHistory" class="thinh.struts.SearchShoppingHistoryAction">
+            <result name="success">shoppingHistory.jsp</result>
+        </action>
+        <action name="findMax" class="thinh.struts.FindMaxAction">
+            <result name="success">findMax.jsp</result>
+        </action>
+        <action name="findCannotSell" class="thinh.struts.FindCannotSellAction">
+            <result name="success">findCannotSell.jsp</result>
+        </action>
+        <action name="getCart" class="thinh.struts.GetCartAction">
+            <result name="success" type="chain">checkOut</result>
+        </action>
+        <action name="deleteShoppingHistory" class="thinh.struts.DeleteShoppingHistoryAction">
+            <result name="success" type="chain">shoppingHistory</result>
+            <result name="input" type="chain">shoppingHistory</result>
+            <result name="fail">error.jsp</result>
+        </action>
+    </package>
+</struts>
